@@ -1,0 +1,119 @@
+---
+  id: 3
+  uuid: "5a9d9612-186a-47b7-868a-e2fa647d872c"
+  title: "ZSH FTW!"
+  slug: "zsh-ftw"
+  image: None
+  featured: 0
+  page: 0
+  status: "published"
+  language: "en_US"
+  meta_title: None
+  meta_description: None
+  author_id: 1
+  created_at: 1386025168135
+  created_by: 1
+  updated_at: 1461335748095
+  updated_by: 1
+  published_at: 1386025168149
+  published_by: 1
+  layout: "post"
+  permalink: "/zsh-ftw/"
+  published: True
+---
+### Zsh & custom prompt
+I love seeing same shell prompt on all my working machines, it's like bringing little piece of home everywhere I go (alongside my favourite wallpaper).
+Here're my [.(ba|z)shrc](https://gist.github.com/sudodoki/b0d9e9320969aad65011) files (I'm lately sticking with z, because it has some nice features).
+
+First problem I ran into when ```source```'ing my .bashrc on freshly installed fedora - ```__git_ps1 not found``` error.
+'Fixed' that (not sure, whether did it optimally) using 
+
+	source /usr/share/git-core/contrib/completion/git-prompt.sh
+
+Decided to look into zshell about all good things that coming my way from Mac users among friendly developers. After getting some [history lesson (#10-12 especially)](http://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692) it was suprisingly to find out that zshell and bash came to be at pretty match same time 23 years ago.
+
+Installing and switching for zhell is either [simple](http://linuxg.net/how-to-install-zsh-shell-how-to-set-it-as-a-default-login-shell/), considering amount of different manuals in the net and also such cool thing as [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+### Customizing your prompt
+
+Customizing prompt basically means firstly deciding what info to show, and secondly - how to do that.
+For different possible escape sequence in zshell & tcsh, check out [this](http://www.nparikh.org/unix/prompt.php) blogpost. Don't forget [bash](http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html) as well.
+
+As for the second part, there're a lot of preinstalled themes you can check out in a list, by running
+	
+    prompt -l
+    
+and preview one of those using '-p' flag or even set using '-s'
+There're [tons](https://github.com/robbyrussell/oh-my-zsh/wiki/themes) of those, and some of them look really neat.
+
+####And for how to switch prompt from bash-y like into zhell-y one?
+
+So, colors went from
+```
+ LIGHT_BLUE="\[\033[1;34m\]"
+ LIGHT_RED="\[\033[1;31m\]"
+ GREEN="\[\033[0;32m\]"
+ WHITE="\[\033[1;37m\]"
+```
+ to
+```
+ LIGHT_BLUE="%{[33;1;34m%}"
+ LIGHT_RED="%{[33;1;31m%}"
+ LIGHT_GREEN="%{[33;1;32m%}"
+ WHITE="%{[33;1;37m%}"
+```
+And overall prompt line from this
+		
+    PS1="$LIGHT_GREEN\u@\h$WHITE:$LIGHT_BLUE\w$LIGHT_RED\$(__git_ps1)$LIGHT_GRAY\$ "
+       
+turned into
+
+	PS1="$LIGHT_GREEN%n@%m%{$reset_color%}:$LIGHT_BLUE%~$LIGHT_RED$git_st%{$reset_color%}$ "
+
+For right prompt (you got that for free in zshell, without any [laggy solutions](http://stackoverflow.com/a/7700192/1976857)) I decided to show ruby & node.js version that are currently being used.
+
+```
+node_folder() {
+  if [ "$(print -l *.js(.N) 2>&1 | wc -w)" != "0" ] || [[ -f package.json  ||  -f Gruntfile.json ||  -f grunt.js ||  -f bower.json ]] ; then 
+    ref="[node `node -v`]"
+  else
+   ref=''
+  fi
+  echo $ref
+}
+
+ruby_folder() {
+  if [ "$(print -l *.rb(.N) 2>&1 | wc -w)" != "0" ] || [[ -f Gemfile  ||  -f Gemfile.lock ||  -f config.ru ]] ; then 
+    xef="[ruby `~/.rvm/bin/rvm-prompt`]"
+  else
+    xef=''
+  fi
+  echo $xef
+}
+source ~/.nvm/nvm.sh
+source /usr/share/git-core/contrib/completion/git-prompt.sh 
+git_st='$(__git_ps1)'
+node_st='$(node_folder)'
+ruby_st='$(ruby_folder)'
+PS1="$LIGHT_GREEN%n@%m%{$reset_color%}:$LIGHT_BLUE%~$LIGHT_RED$git_st%{$reset_color%}$ "
+
+RPROMPT="$node_st$ruby_st"
+autoload -U promptinit
+promptinit
+```
+This code basically uses output of ```node -v``` & ```~/.rvm/bin/rvm-prompt``` to get current versions of thos and display them in the right prompt. But it does that only for folders which contains: for ruby – any *.rb, Gemfile, Gemfile.lock, config.ru; for node – any *.js, package.json, Gruntfile.json, grunt.js, bower.json files. Direct match was done via regular bash [-f primary expression](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html), and for pattern match I went with [wc tool](https://linuxconfig.org/wc-1-manual-page) mixing up different solutions I saw around the web to supress zshell ls standard behaviour (it raises 'no matches found:...') when there's nothing matching pattern.
+
+After all this, my prompt looks something like this
+![Screenshot of my prompt](/content/images/2013/Dec/prompt.png)
+
+Unless for tricky interpolation differences between ```""``` & ```''``` I'd never read about lots of bash [stuff](http://tldp.org/LDP/abs/html/comparison-ops.html) in single night I mostly forgot by now just to write my single implementation of __git_ps1()
+
+In case you ran in issue with your prompt not being recomputed and [this](http://stackoverflow.com/questions/11877551/zsh-not-re-computing-my-shell-prompt) or [this](http://stackoverflow.com/questions/5379986/why-doesnt-my-bash-prompt-update) solution doesn't help you out, be sure to checkout whether you have magic string ```setopt prompt_subst``` in your file.
+>prompt_subst is not set by default. It allows variable substitution to take place in the prompt, so I can just change the contents of certain variables without recreating the prompt every time.
+
+Possible handy reading links:  
+
++ [Conditional Expressions](http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html)
++ [Shell Grammar](http://www.cs.elte.hu/zsh-manual/zsh_5.html)
+
+Be sure to customize your prompt. It get's you to know your tool and makes you feel good.
