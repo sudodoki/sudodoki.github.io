@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/programming-as-analogy-part-iii/"
   published: True
+  comments: True
 ---
 One other field software development is similar to would be **dentistry** (okay, actually, there are a lot of different things, but this one would make it easier and funnier to relate to).
 

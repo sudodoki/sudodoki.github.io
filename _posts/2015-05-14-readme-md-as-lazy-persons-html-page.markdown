@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/readme-md-as-lazy-persons-html-page/"
   published: True
+  comments: True
 ---
 Occasionally, working on some projects hosted on github, we put much time into creating useful & comprehensive README.md file for our project and I think you can benefit from using it to create html pages hosted on github that will be always in sync with the content.
 

@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/concurrency-in-js/"
   published: True
+  comments: True
 ---
 Recently I've been to [BostonJS](http://bostonjs.com/) at Bocoup, where [Naveed Ihsanullah](https://twitter.com/naveedi) from Mozilla shared some of the upcoming concurrency features that will come to live supposedly in about a year (and this talk took place on 30th of April 2015).
 

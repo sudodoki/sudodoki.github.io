@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/how-to-read-erlang-documentation/"
   published: True
+  comments: True
 ---
 While reading awesome book by [Joe Armstrong](http://en.wikipedia.org/wiki/Joe_Armstrong_(programming)), ['Programming Erlang'](http://pragprog.com/book/jaerlang2/programming-erlang), the one of the first ever exercises made me panic a little bit. The one that tells you, in occasional way, to 'Find out how to consult manual pages.'.
 

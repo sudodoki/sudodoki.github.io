@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/bash-scripts-to-automate-usage-of-starters/"
   published: True
+  comments: True
 ---
 # ![](/content/images/2015/05/scaffolding.jpg) 
 

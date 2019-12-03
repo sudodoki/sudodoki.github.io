@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/sublime-ignoring-folder-in-project/"
   published: True
+  comments: True
 ---
 Just 2 quick things about Sublime I would like to share for those, who might be having these issues.
 

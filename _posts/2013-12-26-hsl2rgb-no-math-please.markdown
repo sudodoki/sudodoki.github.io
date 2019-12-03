@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/hsl2rgb-no-math-please/"
   published: True
+  comments: True
 ---
 ###Hue, saturation, and lightness — hsl
 

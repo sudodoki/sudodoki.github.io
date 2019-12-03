@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/zsh-ftw/"
   published: True
+  comments: True
 ---
 ### Zsh & custom prompt
 I love seeing same shell prompt on all my working machines, it's like bringing little piece of home everywhere I go (alongside my favourite wallpaper).

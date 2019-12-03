@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/ui-router-absolutelynothing/"
   published: True
+  comments: True
 ---
 ###Absolutely adressing views in angular-ui-router.
 

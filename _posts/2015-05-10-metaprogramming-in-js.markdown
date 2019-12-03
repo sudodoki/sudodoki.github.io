@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/metaprogramming-in-js/"
   published: False
+  comments: True
 ---
 [Metaprogramming](https://en.wikipedia.org/wiki/Metaprogramming) is not the word too frequently used in JS community (or at least, in those part I was around) historically. Having some Ruby background, I could tell that metaprogramming is a powerful technic that can help you produce terse and flexible code and given some shifts in ES itself in last few years, wanted to a) take a look at what metaprogramming could be usefult for, b)vocalize some ideas that were around for quite some time, c) make people use stuff, which will mean that browser vendors would be interested in supporting this.
 

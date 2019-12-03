@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/the-day-i-stopped-worrying-about-quicksort/"
   published: True
+  comments: True
 ---
 ### Sort like you mean it
 Yep, I did read about quicksort for quite few times, mostly when I was just learning how to program and was solving all kind of algorithmic challenges. I did think that I understand it, but I never fully grokked it, even though I could say 'it recursively divides array into subsets and sort those' and had some working Pascal code that did it (or at least I thought it did).

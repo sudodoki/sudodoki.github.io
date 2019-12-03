@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/habra-staf/"
   published: False
+  comments: True
 ---
 Если кто не знаком с предметной областью, то <a href='github.com/npm/npm'>NPM</a> - node package manager (аналог bundler/composer/easy_install/nuget), средство для управления зависимостями в вашем Node.js проекте, что по совместительсву может выполнять некоторое количество полезных функций.  Написан <a href="https://github.com/isaacs">Айзеком Шлютером</a>, что его достаточно радикальным образом продвигал в начале своей истории (рассылая всем существующим Node.js проектам пулл-реквесты с добавлением package.json - манифестом зависимостей).
 

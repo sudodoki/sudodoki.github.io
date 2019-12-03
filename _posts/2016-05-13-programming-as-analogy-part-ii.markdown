@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/programming-as-analogy-part-ii/"
   published: True
+  comments: True
 ---
 This is a stand-still capture of [lightning talk](http://sudodoki.github.io/slides/rubymeditation-april-16/) I presented at [Ruby Meditation](https://twitter.com/rubymeditation) this spring.
 

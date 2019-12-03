@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/til-prepost-are-for-everybody/"
   published: True
+  comments: True
 ---
 Just a short note on discovery (which is not too much of a discovery actually): you can use *pre-* & *post-* hooks in `npm-scripts` for your own custom tasks.
 So, next time you would need to run several things as part of one task, you could leverage those.

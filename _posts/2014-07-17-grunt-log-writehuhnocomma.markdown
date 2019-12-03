@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/grunt-log-writehuhnocomma/"
   published: False
+  comments: True
 ---
 How does ` grunt.log.write('Debug: '['yellow']);` works?
 https://github.com/epeli/underscore.string/blob/1e465ac17bdb896f1b540ab52d88e86eef7033d6/test/strings.js#L133-L143 this?

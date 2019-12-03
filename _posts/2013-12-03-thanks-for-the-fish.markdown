@@ -20,6 +20,7 @@
   layout: "post"
   permalink: "/thanks-for-the-fish/"
   published: True
+  comments: True
 ---
 ###Пост благодарности.
 И вот, долгожданный ноутбук (спасибо Dell, что оставил свободный слот для памяти и пустующий mSata) и Федора 19 ставится! Рекомендую Easy Life, ведь  

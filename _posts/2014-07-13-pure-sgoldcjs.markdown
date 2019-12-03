@@ -20,4 +20,5 @@
   layout: "post"
   permalink: "/pure-sgoldcjs/"
   published: False
+  comments: True
 ---
