@@ -33,8 +33,8 @@ I turned to do this after I've seen I have different content in README.md & stat
 ## How to solve it?
 
 __Turn your README.md into static page!__
-Your repo is already on github, and whenever you push something to branch name `gh-pages` it's being build & published to `%username%.github.io/%reponame%` (given it's enabled in the repo's [settings](https://github.com/%username%/%reponame%/settings)). Only exception is your very own github space that resides in repo called `%username%.github.io` and will be using `master` branch to build stuff out.
-Github pages use [Jekyll](jekyllrb.com) - static site generator written in Ruby. There're some catches to it - you cannot run [plugins on Github pages](http://jekyllrb.com/docs/plugins/), Github is using some custom markdown parser, - maybe, something else, but those are minor considering how useful this feature is, providing static site hosting & ability to use markdown to create content (you can run your very own blog using Jekyll or [Octopress](http://octopress.org/) built on top of it and pay noone for that).
+Your repo is already on github, and whenever you push something to branch name `gh-pages` it's being build & published to `%username%.github.io/%reponame%` (given it's enabled in the repo's [settings](https://github.com/%username%/%reponame%/settings)). Only exception is your very own github space that resides in repo called `%username%.github.io` and will be using `master` branch to build stuff out. \[UPD 2020: you actually can now [customize](https://pages.github.com/) the branch & even tweak subfolder github pages are built from\].
+Github pages use [Jekyll](jekyllrb.com) - static site generator written in Ruby. There're some catches to it - you cannot run [plugins on Github pages](http://jekyllrb.com/docs/plugins/), Github is using some custom markdown parser, but those are minor considering how useful this feature is, providing static site hosting & ability to use markdown to create content (you can run your very own blog using Jekyll or [Octopress](http://octopress.org/) built on top of it and pay noone for that). \[UPD 2020: this blog is now using jekyll\]
 
 ## 'Code' to do that
 To signal Jekyll that some markdown needs processing, you add YAML syntax [FrontMatter](http://jekyllrb.com/docs/frontmatter/) in the very beginning, which can be as brief as two sets of triple dashes, separated by newline.
@@ -75,7 +75,7 @@ If you use [github-pages](https://github.com/github/pages-gem) gem to bootstrap 
   <meta charset="UTF-8">
 </head>
 <body>
-  {{ content }}
+{% raw %}  {{ content }}{% endraw %}
 </body>
 </html>
 ```
